@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <div class="banner1">
+        <img src="images/banner1.png" alt="banner 1">
+        <div class="banner-text">
+     </div>
+
+<!-------------------CARDS----------------------------->
+    <section class="package">
+    <h1>Explore Our Top Travel Packages</h1>
+
+    <div class="card-container">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="images/india.jpg" alt="India">
+        <h2>India</h2>
+        <p>A vibrant tapestry of culture, cuisine, and unforgettable adventures.</p>
+        <button class="btn" onclick="openModal('India')">View Package</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="images/italy.jpg" alt="Italy">
+        <h2>Italy</h2>
+        <p>Enjoy rich history, Roman ruins, and mouth-watering pasta.</p>
+        <button class="btn" onclick="openModal('Italy')">View Package</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="images/japan.jpg" alt="japan">
+        <h2>Japan</h2>
+        <p>Experience cherry blossoms, temples, and Tokyo’s neon magic.</p>
+        <button class="btn" onclick="openModal('Japan')">View Package</button>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="images/finland.jpg" alt="finland">
+        <h2>Finland</h2>
+        <p>A serene escape of snowy wonders, northern lights, and pure natural beauty.</p>
+        <button class="btn" onclick="openModal('Finland')">View Package</button>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <img src="images/swiz.jpg" alt="Switzerland">
+        <h2>Switzerland</h2>
+        <p>Discover snowy peaks, cozy chalets, and stunning lakes.</p>
+        <button class="btn" onclick="openModal('Switzerland')">View Package</button>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card">
+        <img src="images/korea.jpg" alt="korea">
+        <h2>South Korea</h2>
+        <p>A dynamic blend of tradition, trendsetting culture, and delicious cuisine.</p>
+        <button class="btn" onclick="openModal('South Korea')">View Package</button>
+      </div>
+
+    </div>
+  </section>
+
+
+
+<!--------- form -------------->
+<div id="travelModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modal-title">Customize Your Trip</h3>
+    <form>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label>Preferred Travel Dates:</label>
+      <input type="date" name="start-date"> to 
+      <input type="date" name="end-date">
+
+      <label for="travelers">Number of Travelers:</label>
+      <input type="number" id="travelers" name="travelers" min="1" required>
+
+      <label>Travel Interests:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="interests" value="culture"> Culture</label>
+        <label><input type="checkbox" name="interests" value="food"> Food</label>
+        <label><input type="checkbox" name="interests" value="adventure"> Adventure</label>
+        <label><input type="checkbox" name="interests" value="nature"> Nature</label>
+      </div>
+
+      <label for="accommodation">Accommodation Type:</label>
+      <select id="accommodation" name="accommodation">
+        <option value="budget">Budget</option>
+        <option value="standard">Standard</option>
+        <option value="luxury">Luxury</option>
+      </select>
+
+      <label for="requests">Special Requests:</label>
+      <textarea id="requests" name="requests" rows="3" placeholder="E.g., Vegetarian meals, wheelchair access..."></textarea>
+
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<hr color="yellow">
+
+<!-- -----------QUIZ---------------->
+
+<h1>Let your taste buds plan your next trip — take the quiz now!</h1>
+  <div class="container">
+    <div id="quiz"></div>
+    <div id="result">
+    <h2 id="result-text"></h2>
+    <img id="result-image" src="" alt="Destination GIF" style="width: 100%; max-width: 500px; display: block; margin: auto; border-radius: 10px;" />
+    
+    <p id="weather">Loading weather...</p>
+    <p id="fun">Loading something fun...</p>
+  
+    <button id="start-again">Start Again</button>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+<script>
+  function openModal(destination) {
+    document.getElementById("travelModal").style.display = "block";
+    document.getElementById("modal-title").textContent = "Customize Your Trip to " + destination;
+  }
+
+  function closeModal() {
+    document.getElementById("travelModal").style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("travelModal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+</script>
+
+</body>
+</html>
